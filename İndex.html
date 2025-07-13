@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hayat Melekoğlu</title>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa, #e8ecf3);
+      color: #333;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #ffe2ec, #fbe0ee);
+      text-align: center;
+      padding: 5rem 2rem 3rem;
+      position: relative;
+    }
+    header img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid #ff6f91;
+      margin-bottom: 1rem;
+      transition: transform 0.4s ease;
+      box-shadow: 0 8px 20px rgba(255, 111, 145, 0.3);
+    }
+    header img:hover {
+      transform: scale(1.05);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: #ff4f81;
+      font-weight: 600;
+    }
+    header p {
+      font-size: 1.1rem;
+      color: #666;
+      margin-top: 0.5rem;
+    }
+
+    /* Nav */
+    nav {
+      margin-top: 1.2rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 17px;
+    }
+    nav a {
+      padding: 0.5rem 1.2rem;
+      text-decoration: none;
+      color: #ff6f91;
+      font-weight: 500;
+      font-size: 0.4rem;
+      border-radius: 20px;
+      background: rgba(255, 111, 145, 0.1);
+      transition: all 0.3s ease;
+    }
+    nav a:hover {
+      background: #ff6f91;
+      color: #fff;
+    }
+
+    /* Sections */
+    section {
+      padding: 4rem 1rem;
+      max-width: 1100px;
+      margin: auto;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    section h2 {
+      color: #ff4f81;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    section p {
+      color: #555;
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 0.95rem;
+    }
+
+    /* Perfumes */
+    .perfumes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      transition: all 0.5s ease;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .card:hover {
+      transform: translateY(-12px) scale(1.02);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+    }
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 1.2rem;
+    }
+    .badge {
+      display: inline-block;
+      background: #ff6f91;
+      color: white;
+      padding: 0.3rem 0.9rem;
+      font-size: 0.75rem;
+      border-radius: 12px;
+      margin-bottom: 0.5rem;
+    }
+    .card-content h3 {
+      margin: 0.5rem 0;
+      color: #ff4f81;
+      font-size: 1.3rem;
+    }
+    .card-content p {
+      color: #666;
+      font-size: 0.9rem;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 0.8rem;
+      padding: 0.6rem 1.4rem;
+      background: linear-gradient(135deg, #ff8fb1, #ff4f81);
+      color: white;
+      border: none;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    .btn:hover {
+      background: #ff4f81;
+    }
+
+    /* Social icons */
+    .social-icons {
+      margin-top: 2rem;
+    }
+    .social-icons a {
+      display: inline-block;
+      margin: 0 8px;
+      width: 42px;
+      height: 42px;
+      line-height: 42px;
+      background: #ff6f91;
+      color: white;
+      border-radius: 50%;
+      font-size: 18px;
+      text-align: center;
+      text-decoration: none;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .social-icons a:hover {
+      background: #e05479;
+      transform: scale(1.15);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1rem;
+      color: #888;
+      background: #f5f7fa;
+      margin-top: 3rem;
+      font-size: 0.85rem;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+  <header>
+    <img src="Hayat.jpg" alt="Profil Fotoğrafı">
+    <h1>Hayat Melekoğlu</h1>
+    <p>Paramedik • Tasarımcı • Parfüm Tutkunu</p>
+    <nav>
+      <a href="#hakkimda">Hakkımda</a>
+      <a href="#parfumler">Parfümler</a>
+      <a href="#iletisim">İletişim</a>
+      <a href="#sosyal">Sosyal</a>
+    </nav>
+  </header>
+
+  <section id="hakkimda">
+    <h2>Hakkımda</h2>
+    <p>Merhaba! Gündüzleri Paramedik olarak hayat kurtarıyor, geceleri Parfüm tasarımcısı olarak kalplere dokunuyorum. Her parfüm bir anıdır, bir duygudur. Kokularla insanların iç dünyalarına eşlik etmeyi çok seviyorum.</p>
+  </section>
+
+  <section id="parfumler">
+    <h2>Parfümlerim</h2>
+    <div class="perfumes">
+      <div class="card">
+        <img src="1.png" alt="Parfüm 1">
+        <div class="card-content">
+          <span class="badge">Çiçeksi</span>
+          <h3>Gizemli Orkide</h3>
+          <p>Çiçeksi, egzotik ve hafif tatlı bir koku.</p>
+          <a href="#" class="btn" onclick="alert('Sepete eklendi!')">Satın Al</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="3.png" alt="Parfüm 2">
+        <div class="card-content">
+          <span class="badge">Odunsu</span>
+          <h3>Gece Rüzgarı</h3>
+          <p>Odunsu ve karizmatik bir gece kokusu.</p>
+          <a href="#" class="btn" onclick="alert('Sepete eklendi!')">Satın Al</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="2.png" alt="Parfüm 3">
+        <div class="card-content">
+          <span class="badge">Tatlı</span>
+          <h3>Vanilya Büyüsü</h3>
+          <p>Sıcak, tatlı ve cezbedici bir vanilya aroması.</p>
+          <a href="#" class="btn" onclick="alert('Sepete eklendi!')">Satın Al</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="iletisim">
+    <h2>İletişim</h2>
+    <p>Instagram: @hayat.mlkoglu <br> E-posta: hayatmelekoglu73@gmail.com</p>
+  </section>
+
+  <section id="sosyal">
+    <h2>Sosyal Medya</h2>
+    <div class="social-icons">
+      <a href="https://x.com/hayatmelekogluu" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.instagram.com/hayat.mlkoglu/#" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://wa.me/905012404873" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://tr.pinterest.com/hayatmelekoglu73/" target="_blank"><i class="fab fa-pinterest"></i></a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Hayat Melekoğlu
+  </footer>
+
+  <script>
+    const sections = document.querySelectorAll("section");
+    const cards = document.querySelectorAll(".card");
+    window.addEventListener("scroll", () => {
+      sections.forEach(sec => {
+        const top = window.scrollY;
+        const offset = sec.offsetTop - 500;
+        if(top > offset) {
+          sec.classList.add("visible");
+        }
+      });
+
+      cards.forEach(card => {
+        const top = window.scrollY;
+        const offset = card.offsetTop - 500;
+        if(top > offset) {
+          card.classList.add("visible");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
